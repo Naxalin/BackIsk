@@ -12,7 +12,7 @@ def update_excel():
     data = request.json
     precio = float(data.get("precio", 0))
     gastos = float(data.get("gastos", 0))
-    impuestos = float()
+    impuestos = int(data.get("impuestos", 0))
     cantidad = float(data.get("cantidad",0))
     print("GASTOS: ",gastos,"Ingresos: ",precio, "cantidad", cantidad),
     archivo = "contabilidad.xlsx"
