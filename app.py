@@ -22,15 +22,16 @@ def update_excel():
     hoja["A1"] = "Ingresos"
     hoja["B1"] = "Gastos"
     hoja["C1"] = "cantidad"
+    hoja["D1"] = "impuestos"
     precio*= cantidad
     hoja["A2"] = precio
-    
     hoja["B2"] = gastos
-    
     hoja["C2"] = cantidad
+    hoja["D2"] = impuestos
+    beneficio = (precio * impuestos) / 100
     wb.save(archivo)
 
-    rentable = precio > gastos
+    rentable = beneficio > gastos
     print("rentabilidad", rentable)
     return jsonify({"rentable": rentable})
 
